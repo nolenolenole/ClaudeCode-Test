@@ -1,0 +1,393 @@
+{
+  "framework": "react",
+  "uiLibraries": {
+    "styling": "tailwindcss",
+    "icons": "lucide-react",
+    "animation": "framer-motion"
+  },
+  "components": [
+    {
+      "name": "导航栏",
+      "type": "Navigation",
+      "description": "侧边导航栏组件，包含logo和菜单项",
+      "framework_component": "自定义组件",
+      "suggested_implementation": {
+        "component": "Sidebar/Navigation",
+        "libraries": ["lucide-react"],
+        "tailwind_classes": ["flex", "flex-col", "items-center", "bg-gradient-to-b", "from-[#F9FFFE]", "via-[#F2F3FE]", "to-[#FDF9FE]", "w-22", "h-screen", "p-4"]
+      },
+      "children": [
+        {
+          "name": "logo",
+          "type": "Logo",
+          "description": "品牌logo区域",
+          "framework_component": "Image",
+          "suggested_implementation": {
+            "component": "img",
+            "tailwind_classes": ["rounded", "w-20", "h-20"]
+          }
+        },
+        {
+          "name": "菜单栏",
+          "type": "Menu",
+          "description": "垂直菜单列表",
+          "framework_component": "自定义组件",
+          "suggested_implementation": {
+            "component": "nav",
+            "tailwind_classes": ["flex", "flex-col", "gap-3", "items-center"]
+          },
+          "children": [
+            {
+              "name": "菜单选项",
+              "type": "MenuItem",
+              "description": "单个菜单项，支持选中和常态状态",
+              "framework_component": "Button/Link",
+              "props": {
+                "状态": ["选中", "常态"],
+                "角标": ["无", "有"]
+              },
+              "suggested_implementation": {
+                "component": "button/Link",
+                "libraries": ["lucide-react"],
+                "tailwind_classes": ["flex", "flex-col", "items-center", "gap-1", "w-10", "h-15"],
+                "icon_component": "lucide-react icons (Compass, Wand2, Package, Layout)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "积分入口",
+      "type": "PointsEntry",
+      "description": "积分显示和入口组件，带渐变边框",
+      "framework_component": "自定义组件",
+      "suggested_implementation": {
+        "component": "Card",
+        "tailwind_classes": ["rounded-2xl", "border-3", "border-gradient", "bg-white", "shadow-inner", "p-3", "flex", "flex-col", "items-center"],
+        "gradient": "linear-gradient(130deg, #BBA6FF, #AADCFE 50%, #DFC2FF 89%)"
+      },
+      "children": [
+        {
+          "name": "积分Icon",
+          "type": "Icon",
+          "description": "星形积分图标",
+          "framework_component": "Icon",
+          "suggested_implementation": {
+            "component": "lucide-react Star icon",
+            "tailwind_classes": ["w-4", "h-4"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "默认头像",
+      "type": "Avatar",
+      "description": "圆形渐变背景头像",
+      "framework_component": "Avatar",
+      "suggested_implementation": {
+        "component": "div with img",
+        "tailwind_classes": ["rounded-full", "bg-gradient-to-br", "from-[#D6F482]", "via-[#AAE1FE]", "to-[#5BF2C6]", "w-10", "h-10", "flex", "items-center", "justify-center"]
+      }
+    },
+    {
+      "name": "Icon组件集",
+      "type": "Icons",
+      "description": "各种图标组件",
+      "framework_component": "lucide-react",
+      "icons": [
+        {
+          "name": "Icon/Filled-灵感",
+          "suggested_icon": "Compass"
+        },
+        {
+          "name": "Icon/TwoTone-生成",
+          "suggested_icon": "Wand2"
+        },
+        {
+          "name": "Icon/TwoTone-资源",
+          "suggested_icon": "Package"
+        },
+        {
+          "name": "Icon/TwoTone-画布",
+          "suggested_icon": "Layout"
+        },
+        {
+          "name": "Icon/Outlined-消息",
+          "suggested_icon": "MessageCircle"
+        },
+        {
+          "name": "Icon/Outlined-more-01",
+          "suggested_icon": "MoreHorizontal"
+        },
+        {
+          "name": "Icon/Outlined-Down",
+          "suggested_icon": "ChevronDown"
+        },
+        {
+          "name": "Icon/Outlined-智能比例",
+          "suggested_icon": "Maximize2"
+        },
+        {
+          "name": "Icon/Outlined-Upload-01",
+          "suggested_icon": "Upload"
+        },
+        {
+          "name": "Icon/Outlined-Right",
+          "suggested_icon": "ChevronRight"
+        },
+        {
+          "name": "Icon/Outlined-做同款",
+          "suggested_icon": "Copy"
+        },
+        {
+          "name": "Icon/Outlined-图片编辑",
+          "suggested_icon": "Edit"
+        }
+      ]
+    },
+    {
+      "name": "Tab切换",
+      "type": "Tabs",
+      "description": "图片生成/视频生成切换标签",
+      "framework_component": "自定义Tabs",
+      "suggested_implementation": {
+        "component": "Tabs",
+        "tailwind_classes": ["flex", "rounded-3xl", "bg-white", "overflow-hidden"],
+        "animation": "framer-motion for tab switching"
+      },
+      "children": [
+        {
+          "name": "Tab1",
+          "type": "TabItem",
+          "description": "图片生成标签（选中态）",
+          "framework_component": "Button",
+          "suggested_implementation": {
+            "component": "button",
+            "tailwind_classes": ["flex", "items-center", "gap-2", "px-4", "py-2", "rounded-3xl", "bg-white", "text-purple-600", "font-medium"]
+          }
+        },
+        {
+          "name": "Tab2",
+          "type": "TabItem",
+          "description": "视频生成标签（常态）",
+          "framework_component": "Button",
+          "suggested_implementation": {
+            "component": "button",
+            "tailwind_classes": ["flex", "items-center", "gap-2", "px-4", "py-2", "text-gray-600"]
+          }
+        }
+      ]
+    },
+    {
+      "name": "模型选择",
+      "type": "Select/Dropdown",
+      "description": "模型选择下拉框",
+      "framework_component": "Select",
+      "suggested_implementation": {
+        "component": "select/Dropdown",
+        "libraries": ["lucide-react"],
+        "tailwind_classes": ["rounded-3xl", "bg-white", "border", "border-gray-200", "px-3", "py-2", "flex", "items-center", "gap-2"]
+      }
+    },
+    {
+      "name": "图片参数",
+      "type": "ParameterSelector",
+      "description": "图片参数选择器（比例、清晰度、数量）",
+      "framework_component": "自定义组件",
+      "props": {
+        "状态": ["默认", "展开"],
+        "展开": ["是", "否"]
+      },
+      "suggested_implementation": {
+        "component": "Dropdown/Popover",
+        "tailwind_classes": ["rounded-3xl", "bg-white", "border", "border-gray-200", "px-3", "py-2", "flex", "items-center", "gap-2"]
+      }
+    },
+    {
+      "name": "联想助手",
+      "type": "AssistantButton",
+      "description": "联想助手按钮",
+      "framework_component": "Button",
+      "suggested_implementation": {
+        "component": "button",
+        "libraries": ["lucide-react"],
+        "tailwind_classes": ["rounded-3xl", "bg-white", "border", "border-gray-200", "px-3", "py-2", "flex", "items-center", "gap-2"]
+      }
+    },
+    {
+      "name": "图片上传",
+      "type": "Upload",
+      "description": "图片上传区域",
+      "framework_component": "Upload",
+      "props": {
+        "状态": ["默认", "上传中", "已上传"]
+      },
+      "suggested_implementation": {
+        "component": "input[type=file] with custom UI",
+        "libraries": ["lucide-react"],
+        "tailwind_classes": ["rounded-xl", "bg-gray-50", "border-2", "border-dashed", "border-gray-200", "w-12", "h-16", "flex", "items-center", "justify-center"]
+      }
+    },
+    {
+      "name": "提示词",
+      "type": "TextArea/Input",
+      "description": "提示词输入框",
+      "framework_component": "Textarea",
+      "props": {
+        "状态": ["未激活", "激活", "输入中"]
+      },
+      "suggested_implementation": {
+        "component": "textarea",
+        "tailwind_classes": ["w-full", "bg-transparent", "border-none", "outline-none", "resize-none", "text-gray-400", "placeholder-gray-400"]
+      }
+    },
+    {
+      "name": "翻译",
+      "type": "TranslateButton",
+      "description": "翻译按钮",
+      "framework_component": "Button",
+      "suggested_implementation": {
+        "component": "button",
+        "libraries": ["lucide-react"],
+        "tailwind_classes": ["rounded", "bg-white", "px-2", "py-1", "flex", "items-center", "gap-1", "text-purple-500"]
+      }
+    },
+    {
+      "name": "生成按钮",
+      "type": "GenerateButton",
+      "description": "生成按钮，显示所需积分",
+      "framework_component": "Button",
+      "props": {
+        "状态": ["有效", "无效", "加载中"],
+        "显示内容": ["积分", "文字"]
+      },
+      "suggested_implementation": {
+        "component": "button",
+        "libraries": ["lucide-react"],
+        "tailwind_classes": ["rounded-3xl", "bg-gray-300", "disabled:bg-gray-300", "enabled:bg-purple-600", "px-3", "py-2", "flex", "items-center", "gap-1", "text-white"]
+      }
+    },
+    {
+      "name": "运营位",
+      "type": "Banner/Card",
+      "description": "运营推广卡片",
+      "framework_component": "Card",
+      "suggested_implementation": {
+        "component": "div/Card",
+        "tailwind_classes": ["rounded-3xl", "bg-gray-800", "overflow-hidden", "w-120", "h-25", "relative"]
+      }
+    },
+    {
+      "name": "教程位",
+      "type": "Card",
+      "description": "教程入口卡片",
+      "framework_component": "Card",
+      "suggested_implementation": {
+        "component": "div/Card",
+        "tailwind_classes": ["rounded-3xl", "bg-purple-50", "p-6", "flex", "flex-col", "justify-center"]
+      }
+    },
+    {
+      "name": "模型上新位",
+      "type": "Card",
+      "description": "模型更新通知卡片",
+      "framework_component": "Card",
+      "suggested_implementation": {
+        "component": "div/Card",
+        "tailwind_classes": ["rounded-3xl", "bg-purple-50", "p-6", "flex", "flex-col", "justify-center"]
+      }
+    },
+    {
+      "name": "灵感广场",
+      "type": "Gallery",
+      "description": "灵感作品展示区域",
+      "framework_component": "自定义组件",
+      "suggested_implementation": {
+        "component": "Grid/Masonry Layout",
+        "tailwind_classes": ["grid", "grid-cols-6", "gap-1"],
+        "animation": "framer-motion for image loading"
+      },
+      "children": [
+        {
+          "name": "图片卡片",
+          "type": "ImageCard",
+          "description": "单个作品卡片，带悬浮操作",
+          "framework_component": "Card",
+          "suggested_implementation": {
+            "component": "div with hover effects",
+            "libraries": ["lucide-react", "framer-motion"],
+            "tailwind_classes": ["relative", "overflow-hidden", "rounded-lg", "group"],
+            "hover_effects": "gradient overlay with action buttons"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cursor",
+      "type": "Cursor",
+      "description": "自定义鼠标指针",
+      "framework_component": "自定义组件",
+      "props": {
+        "属性 2": ["默认", "点击", "悬停"]
+      },
+      "suggested_implementation": {
+        "component": "Animated cursor component",
+        "libraries": ["framer-motion"],
+        "tailwind_classes": ["absolute", "pointer-events-none", "z-50"]
+      }
+    }
+  ],
+  "design_tokens": {
+    "colors": {
+      "primary": "#6928FE",
+      "background_gradient": "linear-gradient(180deg, #F9FFFE, #F2F3FE 37%, #FDF9FE)",
+      "card_gradient": "linear-gradient(130deg, #BBA6FF, #AADCFE 50%, #DFC2FF 89%)",
+      "avatar_gradient": "linear-gradient(143deg, #D6F482 10%, #AAE1FE 26%, #AF83FD 49%, #5BF2C6 86%)"
+    },
+    "spacing": {
+      "sidebar_width": "88px",
+      "gap_small": "4px",
+      "gap_medium": "8px",
+      "gap_large": "12px"
+    },
+    "border_radius": {
+      "small": "4px",
+      "medium": "8px",
+      "large": "12px",
+      "xlarge": "16px",
+      "xxlarge": "24px",
+      "full": "9999px"
+    },
+    "typography": {
+      "font_family": "'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', sans-serif",
+      "sizes": {
+        "xs": "12px",
+        "sm": "14px",
+        "base": "16px",
+        "lg": "20px"
+      }
+    }
+  },
+  "implementation_notes": {
+    "framework": "React + TypeScript",
+    "styling": "Tailwind CSS with custom gradients",
+    "icons": "lucide-react for all icon components",
+    "animations": "framer-motion for transitions and interactions",
+    "layout": "Flexbox and Grid for responsive layouts",
+    "state_management": "React hooks (useState, useContext)",
+    "routing": "react-router-dom for navigation"
+  },
+  "component_mapping_summary": {
+    "total_components": 20,
+    "custom_components": 12,
+    "icon_components": 12,
+    "reusable_patterns": [
+      "Card with gradient border",
+      "Icon + Text button",
+      "Dropdown with icon",
+      "Image gallery with hover effects",
+      "Tab navigation"
+    ]
+  }
+}
