@@ -1,0 +1,91 @@
+{
+  "name": "banner-gen",
+  "version": "1.1.0",
+  "description": "Generate high-quality marketing banners with smart prompt engineering, templates, and intelligent recommendations. Supports promotional campaigns, product launches, brand announcements, and holiday events. Automatically composes rich prompts with layout, style, color, and 3D elements for professional banner output.",
+  "author": "sir1st",
+  "license": "MIT",
+  "main": "skill.py",
+  "tags": [
+    "banner",
+    "marketing",
+    "design",
+    "ai",
+    "image-generation",
+    "promotion",
+    "creative"
+  ],
+  "env": {
+    "WULI_API_TOKEN": {
+      "description": "Wuli.art API token for authentication. Get it from https://wuli.art (bottom-left corner -> API).",
+      "required": true,
+      "secret": true
+    }
+  },
+  "metadata": {
+    "clawdbot": {
+      "emoji": "🎯",
+      "requires": {
+        "anyBins": ["python3"]
+      },
+      "os": ["linux", "darwin", "win32"]
+    }
+  },
+  "arguments": {
+    "title": {
+      "description": "Banner main title text (e.g. '会员积分功能上线')",
+      "required": true
+    },
+    "subtitle": {
+      "description": "Banner subtitle/CTA text (e.g. '邀请好友福利叠加 >')",
+      "default": ""
+    },
+    "scene": {
+      "description": "Banner scene: promotion (促销活动), launch (新品发布), brand (品牌宣传), holiday (节日活动), feature (功能上新), general (通用)",
+      "default": "general"
+    },
+    "style": {
+      "description": "Visual style: modern (现代简约), tech (科技感), cute (可爱卡通), luxury (高端奢华), fresh (清新自然), gradient (渐变抽象)",
+      "default": "modern"
+    },
+    "color": {
+      "description": "Color theme: purple-dark (深紫暗色), purple (品牌紫), purple-pink (紫粉浅色), blue-purple (蓝紫), warm (暖橙), dark (纯黑紫), auto (自动推荐)",
+      "default": "auto"
+    },
+    "element": {
+      "description": "Decorative 3D element description (e.g. '礼盒', '火箭', '金币'). Leave empty for auto-recommendation.",
+      "default": ""
+    },
+    "size": {
+      "description": "Banner size: large (480x100 大尺寸), small (300x100 小尺寸)",
+      "default": "large"
+    },
+    "aspect_ratio": {
+      "description": "Custom aspect ratio override (e.g. 21:9, 16:9). If set, overrides --size for AI generation.",
+      "default": ""
+    },
+    "model": {
+      "description": "AI model: Qwen Image 2.0 (default, good text rendering), Seedream 4.5 (photorealistic), Qwen Image Turbo (fast draft)",
+      "default": "Qwen Image 2.0"
+    },
+    "resolution": {
+      "description": "Resolution: 2K (default) or 4K",
+      "default": "2K"
+    },
+    "n": {
+      "description": "Number of banner variants to generate (1-4)",
+      "default": "4"
+    },
+    "negative_prompt": {
+      "description": "Elements to exclude from the banner",
+      "default": ""
+    },
+    "optimize": {
+      "description": "Enable Wuli AI prompt optimization (flag)",
+      "default": "false"
+    },
+    "lang": {
+      "description": "Prompt language: zh (Chinese, default) or en (English)",
+      "default": "zh"
+    }
+  }
+}
