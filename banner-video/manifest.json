@@ -1,0 +1,7 @@
+{
+  "name": "banner-video",
+  "description": "Generate animated banner videos and GIFs from background images. Submits image-to-video AI generation, downloads no-watermark result, composites title/subtitle text overlay via Pillow, and optionally exports GIF.",
+  "version": "1.0.0",
+  "entry": "skill.py",
+  "language": "python3"
+}
